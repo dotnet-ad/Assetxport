@@ -1,0 +1,27 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+ <!-- Default inputs parameters -->
+	
+  <PropertyGroup>
+	<AssetxportCli Condition=" '$(AssetxportCli)' == '' ">Assetxport.Cli.exe</AssetxportCli>
+  </PropertyGroup>
+
+ <!-- 1. Finding all option files that ends with ".assets.json" -->
+	
+  <Target Name="CollectAssetxportFiles" BeforeTargets="Assetxport">
+    <ItemGroup>
+     <AssetxportFilesRelative Include="@(None)" Condition="$([System.String]::Copy('%(Identity)').EndsWith('.assets.json'))"/>
+     <AssetxportFilesAbsolute Include="%(AssetxportFilesRelative.Fullpath)"/>
+    </ItemGroup>
+  </Target>
+
+ <!-- 2. Exporting assets with "Cli" -->
+
+  <Target Name="Assetxport" BeforeTargets="BeforeBuild">
+    <Exec Command='$(AssetxportCli) -Options "@(AssetxportFilesAbsolute)"'  ConsoleToMSBuild="true" >
+        <Output TaskParameter="ConsoleOutput" PropertyName="AssetxportOutput" />
+    </Exec>
+    <Message Text="$(AssetxportOutput)"/>
+  </Target>
+
+</Project>
