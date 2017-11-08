@@ -53,7 +53,14 @@
 			{
 				Log.Write($"[{this.Path} ({this.bitmap.Width}x{this.bitmap.Height})({this.Density}x)] -> Generating [{path} ({width}x{height})]");
 
-				var info = new SKImageInfo(width, height);
+                // SKBitmap.Resize() doesn't support SKColorType.Index8
+                // https://github.com/mono/SkiaSharp/issues/331
+                if (bitmap.ColorType != SKColorType.Bgra8888)
+                {
+                    bitmap.CopyTo(bitmap, SKColorType.Bgra8888);
+                }
+
+                var info = new SKImageInfo(width, height);
 
 				using (var resized = bitmap.Resize(info, SKBitmapResizeMethod.Lanczos3))
 				using (var image = SKImage.FromBitmap(resized))
