@@ -17,7 +17,7 @@
 
 		protected override string GetAssetPath(string name, string extension, string qualifier, double density)
 		{
-			return $"{name}{qualifier}{extension}";
+			return $"{name}.{qualifier}{extension}";
 		}
 	}
 }
