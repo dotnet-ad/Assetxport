@@ -3,7 +3,7 @@
  <!-- Default inputs parameters -->
 	
   <PropertyGroup>
-	<AssetxportCli Condition=" '$(AssetxportCli)' == '' ">Assetxport.Cli.exe</AssetxportCli>
+	<AssetxportCli Condition=" '$(AssetxportCli)' == '' ">$(MSBuildThisFileDirectory)..\..\tools\Assetxport.Cli.exe</AssetxportCli>
   </PropertyGroup>
 
  <!-- 1. Finding all option files that ends with ".assets.json" -->
