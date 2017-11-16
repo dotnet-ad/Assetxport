@@ -25,6 +25,6 @@
      <file src="..\Sources\AutoFindViews.targets" target="build\uap\Assetxport.targets"/>
 
      <!-- Cli -->
-     <file src="..\Sources\Assetxport.Cli\bin\Release\**\*.*" target="tools\**\*" />
+     <file src="..\Sources\Assetxport.Cli\bin\Release\**\*.*" target="tools\**\*.*" />
    </files>
 </package>
