@@ -65,28 +65,33 @@
 
                 // SKBitmap.Resize() doesn't support SKColorType.Index8
                 // https://github.com/mono/SkiaSharp/issues/331
-                if (bitmap.ColorType != SKColorType.Bgra8888)
+                if (bitmap.ColorType != SKColorType.Rgba8888)
                 {
-                    bitmap.CopyTo(bitmap, SKColorType.Bgra8888);
+                    bitmap.CopyTo(bitmap, SKColorType.Rgba8888);
                 }
 
                 var info = new SKImageInfo(width, height);
 
 				using (var resized = bitmap.Resize(info, SKBitmapResizeMethod.Lanczos3))
-				using (var image = SKImage.FromBitmap(resized))
-				using (var data = image.Encode())
-				{
-					path.CreateParentDirectory();
+                {
+                    if (resized == null)
+                        throw new InvalidOperationException($"Failed to resize : {Path}.");
 
-					if (File.Exists(path))
-						File.Delete(path);
+                    using (var image = SKImage.FromBitmap(resized))
+                    using (var data = image.Encode())
+                    {
+                        path.CreateParentDirectory();
 
-					using(var fileStream = File.Create(path))
-					using(var outputStream = data.AsStream())
-					{
-						outputStream.CopyTo(fileStream);
-					}
-				}
+                        if (File.Exists(path))
+                            File.Delete(path);
+
+                        using (var fileStream = File.Create(path))
+                        using (var outputStream = data.AsStream())
+                        {
+                            outputStream.CopyTo(fileStream);
+                        }
+                    }
+                }
 			}
 			else
 			{
