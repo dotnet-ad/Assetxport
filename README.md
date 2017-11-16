@@ -1,6 +1,6 @@
 ![Logo](Documentation/Logo.png)
 
-Resize UWP, Xamarin.Android and Xamarin.iOS assets automatically.
+Resize UWP, Xamarin.Android and Xamarin.iOS assets automatically at build time.
 
 ## Install
 
@@ -10,7 +10,7 @@ Available on NuGet
 
 ## Usage
 
-The easiest way is to use **Assetxport** from its build task. Simply add a [NuGet](https://www.nuget.org/packages/Assetxport/) package reference to your Xamarin.iOS, Xamarin.Android or Universal Windows Platform project and add a `Config.assets.json` configuration file at the root of your project.
+The easiest way is to use **Assetxport** from its build task. Simply add a [NuGet](https://www.nuget.org/packages/Assetxport/) package reference to your **Xamarin.iOS**, **Xamarin.Android** or **Universal Windows Platform** project and add a `Config.assets.json` configuration file at the root of your project.
 
 `Config.assets.json`
 
@@ -39,7 +39,7 @@ In your high definition asset source folder, all `.png`|`.jpg` images should hav
 * `<name>@hdpi.<ext>` : **1.50**
 * `<name>@xhdpi.<ext>` : **2.00**
 * `<name>@xxhdpi.<ext>` : **3.00**
-* `<name>@xxxhdp.<ext>i` : **4.00**
+* `<name>@xxxhdpi.<ext>` : **4.00**
 
 Then simply build the project to generate your various assets (*with densities lower or equal to the original density*) to the output folder!
 
@@ -63,7 +63,7 @@ The standalone `.exe` CLI used by the build task is available from the `/tools` 
 
 ## Under the hood
 
-The tool uses [SkiaSharp](https://github.com/mono/SkiaSharp) the resize all images.
+The tool uses [SkiaSharp](https://github.com/mono/SkiaSharp) to resize all images.
 
 ## Contributions
 
