@@ -21,10 +21,20 @@
 			}
 
 			using (var input = File.Open(path, FileMode.Open))
-			using (var stream = new SKManagedStream(input))
-			{
-				this.bitmap = SKBitmap.Decode(stream);
-			}
+            using(var memory = new MemoryStream())
+            {
+                input.CopyTo(memory);
+                memory.Seek(0, SeekOrigin.Begin);
+                memory.Position = 0;
+
+                using (var stream = new SKManagedStream(memory))
+                {
+                    this.bitmap = SKBitmap.Decode(stream);
+
+                    if (this.bitmap == null)
+                        throw new InvalidOperationException($"The provided image isn't valid : {path} (SKBitmap can't be created).");
+                } 
+            }
 		}
 
 		#endregion

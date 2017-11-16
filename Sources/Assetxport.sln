@@ -21,6 +21,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{3470A1B6-A846-43D5-8361-CB6031872BAB}"
 	ProjectSection(SolutionItems) = preProject
 		..\NuGet\Package.nuspec = ..\NuGet\Package.nuspec
+		..\nuget\Package.Cli.nuspec = ..\nuget\Package.Cli.nuspec
 	EndProjectSection
 EndProject
 Global
