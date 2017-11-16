@@ -1,0 +1,5 @@
+﻿{
+  "Platform": "Android",
+  "Input": [ "../Assetxport.Sample.Cli/Images/" ],
+  "Output": "Resources"
+}

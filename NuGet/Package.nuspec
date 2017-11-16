@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Assetxport</id>
+    <version>$version$</version>
+    <title>Assetxport</title>
+    <authors>Aloïs Deniel</authors>
+    <owners>Aloïs Deniel</owners>
+    <licenseUrl>https://github.com/aloisdeniel/Assetxport/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/aloisdeniel/Assetxport/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/aloisdeniel/Assetxport/master/Documentation/Logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Resize UWP, Xamarin.Android and Xamarin.iOS assets automatically.</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>tool assets resize xamarin ios android uwp</tags>
+  </metadata>
+   <files>
+     <!-- Android -->
+     <file src="..\Sources\AutoFindViews.targets" target="build\MonoAndroid10\Assetxport.targets"/>
+
+     <!-- iOS -->
+	 <file src="..\Sources\AutoFindViews.targets" target="build\Xamarin.iOS10\Assetxport.targets"/>
+
+     <!-- UWP -->
+     <file src="..\Sources\AutoFindViews.targets" target="build\uap\Assetxport.targets"/>
+
+     <!-- Cli -->
+     <file src="..\Sources\Assetxport.Cli\bin\Release\**\*.*" target="tools\**\*" />
+   </files>
+</package>

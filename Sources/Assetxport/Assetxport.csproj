@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.59.1" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" PrivateAssets="all" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Platforms\" />
+    <Folder Include="Assets\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+</Project>
