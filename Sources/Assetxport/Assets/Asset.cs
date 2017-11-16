@@ -65,9 +65,9 @@
 
                 // SKBitmap.Resize() doesn't support SKColorType.Index8
                 // https://github.com/mono/SkiaSharp/issues/331
-                if (bitmap.ColorType != SKColorType.Rgba8888)
+                if(bitmap.ColorType != SKImageInfo.PlatformColorType)
                 {
-                    bitmap.CopyTo(bitmap, SKColorType.Rgba8888);
+                    bitmap.CopyTo(bitmap, SKImageInfo.PlatformColorType);
                 }
 
                 var info = new SKImageInfo(width, height);
