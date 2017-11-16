@@ -16,13 +16,13 @@
   </metadata>
    <files>
      <!-- Android -->
-     <file src="..\Sources\AutoFindViews.targets" target="build\MonoAndroid10\Assetxport.targets"/>
+     <file src="..\Sources\Assetxport.targets" target="build\MonoAndroid10\Assetxport.targets"/>
 
      <!-- iOS -->
-	 <file src="..\Sources\AutoFindViews.targets" target="build\Xamarin.iOS10\Assetxport.targets"/>
+	 <file src="..\Sources\Assetxport.targets" target="build\Xamarin.iOS10\Assetxport.targets"/>
 
      <!-- UWP -->
-     <file src="..\Sources\AutoFindViews.targets" target="build\uap\Assetxport.targets"/>
+     <file src="..\Sources\Assetxport.targets" target="build\uap\Assetxport.targets"/>
 
      <!-- Cli -->
      <file src="..\Sources\Assetxport.Cli\bin\Release\**\*.*" target="tools" />
