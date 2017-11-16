@@ -29,7 +29,7 @@
 			}
 
 			var qualified = QualifiedNaming.Match(path);
-			if (qualified.Success && KnownQualifiedNames.TryGetValue(expl.Groups[1].Value, out density))
+			if (qualified.Success && KnownQualifiedNames.TryGetValue(qualified.Groups[1].Value, out density))
 			{
 				return true;
 			}
